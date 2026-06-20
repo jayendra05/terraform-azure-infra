@@ -27,3 +27,12 @@ module "rg_prod" {
   location = "Central India"
 
 }
+module "rg_prod_002" {
+
+  source = "./modules/rg"
+
+  resource_group_name = "rg-prod-00w"
+
+  location = "Central India"
+
+}
