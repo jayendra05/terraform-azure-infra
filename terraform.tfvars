@@ -6,10 +6,3 @@ rg_prod_location = "West Europe"
 
 rg_staging_name     = "rg-stg-001"
 rg_staging_location = "West Europe"
-
-rg_test_name     = "rg-test-001"
-rg_test_location = "Central India"
-
-rg_test_02_name     = "rg-test-002"
-rg_test_02_location = "Central India"
-

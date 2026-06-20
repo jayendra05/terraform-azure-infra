@@ -15,15 +15,3 @@ module "rg_staging" {
   resource_group_name = var.rg_staging_name
   location            = var.rg_staging_location
 }
-
-module "rg_test" {
-  source              = "./modules/rg"
-  resource_group_name = var.rg_test_name
-  location            = var.rg_test_location
-}
-
-module "rg_test_02" {
-  source              = "./modules/rg"
-  resource_group_name = var.rg_test_02_name
-  location            = var.rg_test_02_location
-}
