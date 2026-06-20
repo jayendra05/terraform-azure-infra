@@ -1,55 +1,38 @@
-trigger:
+name: Terraform CI/CD
 
-- main
+on:
+  push:
+    branches:
+      - main
 
+jobs:
 
-pool:
+  terraform:
 
-  vmImage: ubuntu-latest
+    runs-on: ubuntu-latest
 
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
-steps:
+    steps:
 
-- task: TerraformInstaller@1
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-  inputs:
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
 
-    terraformVersion: 'latest'
+      - name: Terraform Init
+        run: terraform init
 
+      - name: Terraform Validate
+        run: terraform validate
 
-- task: TerraformTaskV4@4
+      - name: Terraform Plan
+        run: terraform plan
 
-  inputs:
-
-    provider: 'azurerm'
-
-    command: 'init'
-
-
-- task: TerraformTaskV4@4
-
-  inputs:
-
-    provider: 'azurerm'
-
-    command: 'validate'
-
-
-- task: TerraformTaskV4@4
-
-  inputs:
-
-    provider: 'azurerm'
-
-    command: 'plan'
-
-
-- task: TerraformTaskV4@4
-
-  inputs:
-
-    provider: 'azurerm'
-
-    command: 'apply'
-
-    commandOptions: '-auto-approve'
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
