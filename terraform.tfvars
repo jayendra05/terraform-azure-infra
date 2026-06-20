@@ -1,9 +1,6 @@
 rg_dev_name     = "rg-dev-001"
 rg_dev_location = "Central India"
 
-rg_test_name     = "rg-test-001"
-rg_test_location = "East US"
-
 rg_prod_name     = "rg-prod-001"
 rg_prod_location = "West Europe"
 
