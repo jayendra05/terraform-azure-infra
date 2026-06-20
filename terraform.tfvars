@@ -6,3 +6,6 @@ rg_prod_location = "West Europe"
 
 rg_staging_name     = "rg-stg-001"
 rg_staging_location = "West Europe"
+
+vnet_dev_001_name     = "vnet-dev"
+address_dev_001_space = ["10.0.0.0/16"]

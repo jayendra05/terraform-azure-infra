@@ -6,3 +6,7 @@ variable "rg_prod_location" {}
 
 variable "rg_staging_name" {}
 variable "rg_staging_location" {}
+
+
+variable "vnet_dev_001_name" {}
+variable "address_dev_001_space" {}
