@@ -9,3 +9,6 @@ variable "rg_staging_location" {}
 
 variable "rg_test_name" {}
 variable "rg_test_location" {}
+
+variable "rg_test_02_name" {}
+variable "rg_test_02_location" {}
