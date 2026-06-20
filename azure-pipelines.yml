@@ -1,0 +1,55 @@
+trigger:
+
+- main
+
+
+pool:
+
+  vmImage: ubuntu-latest
+
+
+steps:
+
+- task: TerraformInstaller@1
+
+  inputs:
+
+    terraformVersion: 'latest'
+
+
+- task: TerraformTaskV4@4
+
+  inputs:
+
+    provider: 'azurerm'
+
+    command: 'init'
+
+
+- task: TerraformTaskV4@4
+
+  inputs:
+
+    provider: 'azurerm'
+
+    command: 'validate'
+
+
+- task: TerraformTaskV4@4
+
+  inputs:
+
+    provider: 'azurerm'
+
+    command: 'plan'
+
+
+- task: TerraformTaskV4@4
+
+  inputs:
+
+    provider: 'azurerm'
+
+    command: 'apply'
+
+    commandOptions: '-auto-approve'
