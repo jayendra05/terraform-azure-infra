@@ -2,11 +2,12 @@ name: Terraform CI/CD
 
 on:
 
-  pull_request:
+  push:
     branches:
       - main
+      - 'feature/**'
 
-  push:
+  pull_request:
     branches:
       - main
 
@@ -56,7 +57,7 @@ jobs:
 
 
       - name: Terraform Format Check
-        run: terraform fmt -check
+        run: terraform fmt -check -recursive
 
 
       - name: Terraform Validate
