@@ -1,7 +1,7 @@
-output "vnet_id" {
-  value = azurerm_virtual_network.this.id
+output "peering_id" {
+  value = azurerm_virtual_network_peering.this.id
 }
 
-output "vnet_name" {
-  value = azurerm_virtual_network.this.name
+output "peering_name" {
+  value = azurerm_virtual_network_peering.this.name
 }
