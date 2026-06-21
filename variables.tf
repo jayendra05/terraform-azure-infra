@@ -7,11 +7,11 @@ variable "rg_prod_location" {}
 variable "rg_staging_name" {}
 variable "rg_staging_location" {}
 
-variable "vnet_dev_001_name" {}
-variable "address_dev_001_space" {}
-
 variable "rg_test_01_name" {}
 variable "rg_test_01_location" {}
+
+variable "vnet_dev_001_name" {}
+variable "address_dev_001_space" {}
 
 variable "vnet_test_01_name" {}
 variable "address_test_01_space" {}
