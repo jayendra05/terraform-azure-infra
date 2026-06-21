@@ -25,7 +25,6 @@ address_dev_001_space = [
   "10.0.0.0/16"
 ]
 
-
 vnet_test_us_01_name = "vnet-test-us-01"
 
 address_test_us_01_space = [
@@ -43,9 +42,35 @@ subnet_dev_prefix = [
   "10.0.1.0/24"
 ]
 
-
 subnet_test_name = "subnet-test"
 
 subnet_test_prefix = [
   "192.168.1.0/24"
 ]
+
+
+############################
+# Public IP
+############################
+
+public_ip_dev_name = "pip-dev-001"
+
+
+############################
+# NIC
+############################
+
+nic_dev_name = "nic-dev-001"
+
+
+############################
+# Virtual Machine
+############################
+
+vm_dev_name = "vm-dev-001"
+
+vm_size = "Standard_B1s"
+
+admin_username = "azureuser"
+
+admin_password = "Password@123456"

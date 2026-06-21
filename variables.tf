@@ -75,3 +75,46 @@ variable "subnet_test_name" {
 variable "subnet_test_prefix" {
   type = list(string)
 }
+
+
+############################
+# Public IP
+############################
+
+variable "public_ip_dev_name" {
+  type = string
+}
+
+
+############################
+# NIC
+############################
+
+variable "nic_dev_name" {
+  type = string
+}
+
+
+############################
+# Virtual Machine
+############################
+
+variable "vm_dev_name" {
+  type = string
+}
+
+variable "vm_size" {
+  type = string
+}
+
+variable "admin_username" {
+  type = string
+}
+
+variable "admin_password" {
+
+  type      = string
+
+  sensitive = true
+
+}

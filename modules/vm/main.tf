@@ -1,14 +1,19 @@
 resource "azurerm_linux_virtual_machine" "this" {
 
-  name = var.vm_name
+  name                = var.vm_name
 
   resource_group_name = var.resource_group_name
 
-  location = var.location
+  location            = var.location
 
-  size = "Standard_B1s"
+  size                = var.vm_size
 
-  admin_username = "azureuser"
+
+  admin_username = var.admin_username
+
+  admin_password = var.admin_password
+
+  disable_password_authentication = false
 
 
   network_interface_ids = [
@@ -16,11 +21,6 @@ resource "azurerm_linux_virtual_machine" "this" {
     var.nic_id
 
   ]
-
-
-  admin_password = var.admin_password
-
-  disable_password_authentication = false
 
 
   os_disk {
