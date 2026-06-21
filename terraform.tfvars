@@ -43,7 +43,6 @@ pip_dev_ci_001_name = "pip-dev-ci-001"
 
 nic_dev_ci_001_name = "nic-dev-ci-001"
 
-
 vm_dev_ci_001_name = "vm-dev-ci-001"
 
 vm_size = "Standard_B1s"
