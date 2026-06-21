@@ -55,3 +55,9 @@ variable "admin_password" {
   type      = string
   sensitive = true
 }
+
+
+variable "nsg_dev_ci_001_name" {
+
+  type = string
+}

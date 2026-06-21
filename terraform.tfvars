@@ -57,3 +57,5 @@ vm_size = "Standard_B2ats_v2"
 admin_username = "azureuser"
 
 admin_password = "Password@123456"
+
+nsg_dev_ci_001_name = "nsg-dev-ci-001"
