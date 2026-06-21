@@ -12,4 +12,4 @@ variable "address_dev_001_space" {}
 
 
 variable "rg_test_us_01_name" {}
-variable "rg_rg_test_us_01_location" {}
+variable "rg_test_us_01_location" {}
