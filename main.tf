@@ -60,7 +60,7 @@ module "subnet_test" {
 
   source               = "./modules/subnet"
   subnet_name          = var.subnet_test_name
-  resource_group_name  = module.vnet_test_us_01.resource_group_name
+  resource_group_name  = module.rg_test_us_01.resource_group_name
   virtual_network_name = var.vnet_test_us_01_name
   address_prefixes     = var.subnet_test_prefix
 
