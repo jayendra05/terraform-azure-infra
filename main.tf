@@ -123,7 +123,7 @@ module "nic_dev_ci_001" {
 
   source = "./modules/nic"
 
-  nic_name           = var.nic_dev_ci_001_name
+  nic_name            = var.nic_dev_ci_001_name
   resource_group_name = module.rg_dev_ci_001.resource_group_name
   location            = module.rg_dev_ci_001.location
   subnet_id           = module.subnet_dev_ci_001.subnet_id
@@ -142,8 +142,8 @@ module "vm_dev_ci_001" {
   resource_group_name = module.rg_dev_ci_001.resource_group_name
   location            = module.rg_dev_ci_001.location
 
-  vm_size        = var.vm_size
-  nic_id         = module.nic_dev_ci_001.nic_id
+  vm_size = var.vm_size
+  nic_id  = module.nic_dev_ci_001.nic_id
 
   admin_username = var.admin_username
   admin_password = var.admin_password
