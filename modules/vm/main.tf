@@ -1,12 +1,12 @@
 resource "azurerm_linux_virtual_machine" "this" {
 
-  name                = var.vm_name
+  name = var.vm_name
 
   resource_group_name = var.resource_group_name
 
-  location            = var.location
+  location = var.location
 
-  size                = var.vm_size
+  size = var.vm_size
 
 
   admin_username = var.admin_username
