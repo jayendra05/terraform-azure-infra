@@ -70,24 +70,24 @@ module "subnet_test" {
 
 module "dev_to_test_peering" {
 
-  source = "./modules/vnet_peering"
-  peering_name = "dev-to-test"
-  resource_group_name = module.rg_dev.resource_group_name
-  virtual_network_name = var.vnet_dev_001_name
+  source                    = "./modules/vnet_peering"
+  peering_name              = "dev-to-test"
+  resource_group_name       = module.rg_dev.resource_group_name
+  virtual_network_name      = var.vnet_dev_001_name
   remote_virtual_network_id = module.vnet_test_001.vnet_id
 
-  depends_on = [module.vnet_dev_001,module.vnet_test_us_01]
+  depends_on = [module.vnet_dev_001, module.vnet_test_us_01]
 
 }
 
 module "test_to_dev_peering" {
 
-  source = "./modules/vnet_peering"
-  peering_name = "test-to-dev"
-  resource_group_name = module.rg_test_01.resource_group_name
-  virtual_network_name = var.vnet_test_us_01_name
+  source                    = "./modules/vnet_peering"
+  peering_name              = "test-to-dev"
+  resource_group_name       = module.rg_test_01.resource_group_name
+  virtual_network_name      = var.vnet_test_us_01_name
   remote_virtual_network_id = module.vnet_dev_001.vnet_id
-  
-  depends_on = [module.vnet_dev_001,module.vnet_test_us_01]
+
+  depends_on = [module.vnet_dev_001, module.vnet_test_us_01]
 
 }
