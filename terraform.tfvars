@@ -13,5 +13,5 @@ address_dev_001_space = ["10.0.0.0/16"]
 rg_test_01_name     = "rg-test-001"
 rg_test_01_location = "West Europe"
 
-vnet_test_01_name     = "vnet-test_001"
+vnet_test_01_name     = "vnet-test-001"
 address_test_01_space = ["10.0.0.0/16"]
