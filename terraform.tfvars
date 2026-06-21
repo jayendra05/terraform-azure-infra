@@ -2,72 +2,79 @@
 # Resource Groups
 ############################
 
-rg_dev_name     = "rg-dev-001"
-rg_dev_location = "Central India"
+rg_dev_ci_001_name     = "rg-dev-ci-001"
+rg_dev_ci_001_location = "Central India"
 
-rg_prod_name     = "rg-prod-001"
-rg_prod_location = "West Europe"
+rg_test_us_001_name     = "rg-test-us-001"
+rg_test_us_001_location = "East US"
 
-rg_staging_name     = "rg-stg-001"
-rg_staging_location = "West Europe"
+rg_prod_we_001_name     = "rg-prod-we-001"
+rg_prod_we_001_location = "West Europe"
 
-rg_test_us_01_name     = "rg-test-us-01"
-rg_test_us_01_location = "East US"
+rg_stg_we_001_name     = "rg-stg-we-001"
+rg_stg_we_001_location = "West Europe"
+
 
 
 ############################
 # VNets
 ############################
 
-vnet_dev_001_name = "vnet-dev-001"
+vnet_dev_ci_001_name = "vnet-dev-ci-001"
 
-address_dev_001_space = [
+vnet_dev_ci_001_address_space = [
   "10.0.0.0/16"
 ]
 
-vnet_test_us_01_name = "vnet-test-us-01"
 
-address_test_us_01_space = [
+vnet_test_us_001_name = "vnet-test-us-001"
+
+vnet_test_us_001_address_space = [
   "192.168.0.0/16"
 ]
+
 
 
 ############################
 # Subnets
 ############################
 
-subnet_dev_name = "subnet-dev"
+subnet_dev_ci_001_name = "subnet-dev-ci-001"
 
-subnet_dev_prefix = [
+subnet_dev_ci_001_prefix = [
   "10.0.1.0/24"
 ]
 
-subnet_test_name = "subnet-test"
 
-subnet_test_prefix = [
+subnet_test_us_001_name = "subnet-test-us-001"
+
+subnet_test_us_001_prefix = [
   "192.168.1.0/24"
 ]
+
 
 
 ############################
 # Public IP
 ############################
 
-public_ip_dev_name = "pip-dev-001"
+pip_dev_ci_001_name = "pip-dev-ci-001"
+
 
 
 ############################
-# NIC
+# Network Interface
 ############################
 
-nic_dev_name = "nic-dev-001"
+nic_dev_ci_001_name = "nic-dev-ci-001"
+
 
 
 ############################
 # Virtual Machine
 ############################
 
-vm_dev_name = "vm-dev-001"
+vm_dev_ci_001_name = "vm-dev-ci-001"
 
 vm_size = "Standard_B1s"
 
