@@ -21,9 +21,9 @@ vnet_test_us_01_name     = "vnet-test_us_01"
 address_test_us_01_space = ["192.0.0.0/16"]
 
 
-subnet_dev_name = "subnet-dev"
+subnet_dev_name   = "subnet-dev"
 subnet_dev_prefix = ["10.0.1.0/24"]
 
 
-subnet_test_name = "subnet-test"
+subnet_test_name   = "subnet-test"
 subnet_test_prefix = ["192.0.1.0/24"]

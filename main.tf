@@ -24,17 +24,17 @@ module "vnet_dev_001" {
   resource_group_name = module.rg_dev.resource_group_name
   location            = module.rg_dev.location
   address_space       = var.address_dev_001_space
-  
+
   depends_on = [module.rg_dev]
 }
 
 module "subnet_dev" {
 
-  source = "./modules/subnet"
-  subnet_name = var.subnet_dev_name
-  resource_group_name = module.rg_dev.resource_group_name
+  source               = "./modules/subnet"
+  subnet_name          = var.subnet_dev_name
+  resource_group_name  = module.rg_dev.resource_group_name
   virtual_network_name = var.vnet_dev_001_name
-  address_prefixes = var.subnet_dev_prefix
+  address_prefixes     = var.subnet_dev_prefix
 
   depends_on = [module.vnet_dev_001]
 
@@ -58,11 +58,11 @@ module "vnet_test_us_01" {
 
 module "subnet_test" {
 
-  source = "./modules/subnet"
-  subnet_name = var.subnet_test_name
-  resource_group_name = module.vnet_test_us_01.resource_group_name
+  source               = "./modules/subnet"
+  subnet_name          = var.subnet_test_name
+  resource_group_name  = module.vnet_test_us_01.resource_group_name
   virtual_network_name = var.vnet_test_us_01_name
-  address_prefixes = var.subnet_test_prefix
+  address_prefixes     = var.subnet_test_prefix
 
   depends_on = [module.vnet_test_us_01]
 
