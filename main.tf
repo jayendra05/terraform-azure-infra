@@ -2,128 +2,100 @@
 # Resource Groups
 #########################################
 
-module "rg_dev_ci_001" {
+module "rg_dev" {
+  source = "./modules/rg"
 
-  source              = "./modules/rg"
-  resource_group_name = var.rg_dev_ci_001_name
-  location            = var.rg_dev_ci_001_location
-
+  resource_group_name = var.rg_dev_name
+  location            = var.rg_dev_location
 }
 
+module "rg_prod" {
+  source = "./modules/rg"
 
-module "rg_test_we_001" {
-
-  source              = "./modules/rg"
-  resource_group_name = var.rg_test_we_001_name
-  location            = var.rg_test_we_001_location
-
+  resource_group_name = var.rg_prod_name
+  location            = var.rg_prod_location
 }
 
+module "rg_staging" {
+  source = "./modules/rg"
 
-module "rg_prod_we_001" {
-
-  source              = "./modules/rg"
-  resource_group_name = var.rg_prod_we_001_name
-  location            = var.rg_prod_we_001_location
-
+  resource_group_name = var.rg_staging_name
+  location            = var.rg_staging_location
 }
 
+module "rg_test_us_01" {
+  source = "./modules/rg"
 
-#########################################
-# VNets
-#########################################
-
-module "vnet_dev_ci_001" {
-
-  source              = "./modules/vnet"
-  vnet_name           = var.vnet_dev_ci_001_name
-  resource_group_name = module.rg_dev_ci_001.resource_group_name
-  location            = module.rg_dev_ci_001.location
-  address_space       = var.vnet_dev_ci_001_address_space
-
-  depends_on = [
-    module.rg_dev_ci_001
-  ]
-
-}
-
-
-module "vnet_test_we_001" {
-
-  source              = "./modules/vnet"
-  vnet_name           = var.vnet_test_we_001_name
-  resource_group_name = module.rg_test_we_001.resource_group_name
-  location            = module.rg_test_we_001.location
-  address_space       = var.vnet_test_we_001_address_space
-
-  depends_on = [
-    module.rg_test_we_001
-  ]
-
-}
-
-
-module "vnet_prod_we_001" {
-
-  source              = "./modules/vnet"
-  vnet_name           = var.vnet_prod_we_001_name
-  resource_group_name = module.rg_prod_we_001.resource_group_name
-  location            = module.rg_prod_we_001.location
-  address_space       = var.vnet_prod_we_001_address_space
-
-  depends_on = [
-    module.rg_prod_we_001
-  ]
-
+  resource_group_name = var.rg_test_us_01_name
+  location            = var.rg_test_us_01_location
 }
 
 
 #########################################
-# Subnets
+# VNETS
 #########################################
 
-module "subnet_dev_ci_001" {
+module "vnet_dev_001" {
 
-  source               = "./modules/subnet"
-  subnet_name          = var.subnet_dev_ci_001_name
-  resource_group_name  = module.rg_dev_ci_001.resource_group_name
-  virtual_network_name = var.vnet_dev_ci_001_name
-  address_prefixes     = var.subnet_dev_ci_001_prefix
+  source = "./modules/vnet"
+
+  vnet_name           = var.vnet_dev_001_name
+  resource_group_name = module.rg_dev.resource_group_name
+  location            = module.rg_dev.location
+  address_space       = var.address_dev_001_space
 
   depends_on = [
-    module.vnet_dev_ci_001
+    module.rg_dev
   ]
-
 }
 
 
-module "subnet_test_we_001" {
+module "vnet_test_us_01" {
 
-  source               = "./modules/subnet"
-  subnet_name          = var.subnet_test_we_001_name
-  resource_group_name  = module.rg_test_we_001.resource_group_name
-  virtual_network_name = var.vnet_test_we_001_name
-  address_prefixes     = var.subnet_test_we_001_prefix
+  source = "./modules/vnet"
+
+  vnet_name           = var.vnet_test_us_01_name
+  resource_group_name = module.rg_test_us_01.resource_group_name
+  location            = module.rg_test_us_01.location
+  address_space       = var.address_test_us_01_space
 
   depends_on = [
-    module.vnet_test_we_001
+    module.rg_test_us_01
   ]
-
 }
 
 
-module "subnet_prod_we_001" {
+#########################################
+# SUBNETS
+#########################################
 
-  source               = "./modules/subnet"
-  subnet_name          = var.subnet_prod_we_001_name
-  resource_group_name  = module.rg_prod_we_001.resource_group_name
-  virtual_network_name = var.vnet_prod_we_001_name
-  address_prefixes     = var.subnet_prod_we_001_prefix
+module "subnet_dev" {
+
+  source = "./modules/subnet"
+
+  subnet_name          = var.subnet_dev_name
+  resource_group_name  = module.rg_dev.resource_group_name
+  virtual_network_name = var.vnet_dev_001_name
+  address_prefixes     = var.subnet_dev_prefix
 
   depends_on = [
-    module.vnet_prod_we_001
+    module.vnet_dev_001
   ]
+}
 
+
+module "subnet_test" {
+
+  source = "./modules/subnet"
+
+  subnet_name          = var.subnet_test_name
+  resource_group_name  = module.rg_test_us_01.resource_group_name
+  virtual_network_name = var.vnet_test_us_01_name
+  address_prefixes     = var.subnet_test_prefix
+
+  depends_on = [
+    module.vnet_test_us_01
+  ]
 }
 
 
@@ -131,76 +103,46 @@ module "subnet_prod_we_001" {
 # VNET PEERING
 #########################################
 
-module "peer_dev_to_test" {
+module "dev_to_test_peering" {
 
-  source                    = "./modules/vnet_peering"
-  peering_name              = "peer-dev-ci-001-to-test-we-001"
-  resource_group_name       = module.rg_dev_ci_001.resource_group_name
-  virtual_network_name      = var.vnet_dev_ci_001_name
-  remote_virtual_network_id = module.vnet_test_we_001.vnet_id
+  source = "./modules/vnet_peering"
+
+  peering_name = "dev-to-test"
+
+  resource_group_name = module.rg_dev.resource_group_name
+
+  virtual_network_name = var.vnet_dev_001_name
+
+  remote_virtual_network_id = module.vnet_test_us_01.vnet_id
 
   depends_on = [
 
-    module.vnet_dev_ci_001,
-    module.vnet_test_we_001
+    module.vnet_dev_001,
+
+    module.vnet_test_us_01
 
   ]
 
 }
 
 
-module "peer_test_to_dev" {
+module "test_to_dev_peering" {
 
-  source                    = "./modules/vnet_peering"
-  peering_name              = "peer-test-we-001-to-dev-ci-001"
-  resource_group_name       = module.rg_test_we_001.resource_group_name
-  virtual_network_name      = var.vnet_test_we_001_name
-  remote_virtual_network_id = module.vnet_dev_ci_001.vnet_id
+  source = "./modules/vnet_peering"
 
-  depends_on = [
+  peering_name = "test-to-dev"
 
-    module.vnet_dev_ci_001,
-    module.vnet_test_we_001
+  resource_group_name = module.rg_test_us_01.resource_group_name
 
-  ]
+  virtual_network_name = var.vnet_test_us_01_name
 
-}
-
-
-#########################################
-# DEV <-> PROD PEERING
-#########################################
-
-module "peer_dev_to_prod" {
-
-  source                    = "./modules/vnet_peering"
-  peering_name              = "peer-dev-ci-001-to-prod-we-001"
-  resource_group_name       = module.rg_dev_ci_001.resource_group_name
-  virtual_network_name      = var.vnet_dev_ci_001_name
-  remote_virtual_network_id = module.vnet_prod_we_001.vnet_id
+  remote_virtual_network_id = module.vnet_dev_001.vnet_id
 
   depends_on = [
 
-    module.vnet_dev_ci_001,
-    module.vnet_prod_we_001
-  ]
+    module.vnet_dev_001,
 
-
-}
-
-
-module "peer_prod_to_dev" {
-
-  source                    = "./modules/vnet_peering"
-  peering_name              = "peer-prod-we-001-to-dev-ci-001"
-  resource_group_name       = module.rg_prod_we_001.resource_group_name
-  virtual_network_name      = var.vnet_prod_we_001_name
-  remote_virtual_network_id = module.vnet_dev_ci_001.vnet_id
-
-  depends_on = [
-
-    module.vnet_dev_ci_001,
-    module.vnet_prod_we_001
+    module.vnet_test_us_01
 
   ]
 

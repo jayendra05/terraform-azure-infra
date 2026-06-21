@@ -1,4 +1,6 @@
+############################
 # Resource Groups
+############################
 
 rg_dev_name     = "rg-dev-001"
 rg_dev_location = "Central India"
@@ -13,7 +15,9 @@ rg_test_us_01_name     = "rg-test-us-01"
 rg_test_us_01_location = "East US"
 
 
+############################
 # VNets
+############################
 
 vnet_dev_001_name = "vnet-dev-001"
 
@@ -29,7 +33,9 @@ address_test_us_01_space = [
 ]
 
 
+############################
 # Subnets
+############################
 
 subnet_dev_name = "subnet-dev"
 

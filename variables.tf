@@ -1,4 +1,6 @@
+############################
 # Resource Groups
+############################
 
 variable "rg_dev_name" {
   type = string
@@ -33,7 +35,9 @@ variable "rg_test_us_01_location" {
 }
 
 
+############################
 # VNets
+############################
 
 variable "vnet_dev_001_name" {
   type = string
@@ -52,7 +56,9 @@ variable "address_test_us_01_space" {
 }
 
 
+############################
 # Subnets
+############################
 
 variable "subnet_dev_name" {
   type = string
