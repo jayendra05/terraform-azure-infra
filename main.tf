@@ -18,14 +18,6 @@ module "rg_staging" {
   location            = var.rg_staging_location
 }
 
-
-module "rg_test_01" {
-  source              = "./modules/rg"
-  resource_group_name = var.rg_test_01_name
-  location            = var.rg_test_01_location
-}
-
-
 module "vnet_dev_001" {
   source              = "./modules/vnet"
   vnet_name           = var.vnet_dev_001_name
@@ -34,16 +26,5 @@ module "vnet_dev_001" {
   address_space       = var.address_dev_001_space
   depends_on = [
     module.rg_dev
-  ]
-}
-
-module "vnet_test_001" {
-  source              = "./modules/vnet"
-  vnet_name           = var.vnet_test_01_name
-  resource_group_name = module.rg_test_01.resource_group_name
-  location            = module.rg_test_01.location
-  address_space       = var.address_test_01_space
-  depends_on = [
-    module.rg_test_01
   ]
 }
