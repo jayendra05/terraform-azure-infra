@@ -45,7 +45,7 @@ nic_dev_ci_001_name = "nic-dev-ci-001"
 
 vm_dev_ci_001_name = "vm-dev-ci-001"
 
-vm_size = "Standard_B1s"
+vm_size = "Standard_B2ats_v2"
 
 admin_username = "azureuser"
 
