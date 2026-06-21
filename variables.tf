@@ -15,4 +15,4 @@ variable "rg_test_us_01_name" {}
 variable "rg_test_us_01_location" {}
 
 variable "vnet_test_us_01_name" {}
-variable "address_dev_001_space" {}
+variable "address_test_us_01_space" {}
