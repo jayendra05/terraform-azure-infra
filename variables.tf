@@ -2,35 +2,35 @@
 # Resource Groups
 ############################
 
-variable "rg_dev_name" {
+variable "rg_dev_ci_001_name" {
   type = string
 }
 
-variable "rg_dev_location" {
+variable "rg_dev_ci_001_location" {
   type = string
 }
 
-variable "rg_prod_name" {
+variable "rg_test_us_001_name" {
   type = string
 }
 
-variable "rg_prod_location" {
+variable "rg_test_us_001_location" {
   type = string
 }
 
-variable "rg_staging_name" {
+variable "rg_prod_we_001_name" {
   type = string
 }
 
-variable "rg_staging_location" {
+variable "rg_prod_we_001_location" {
   type = string
 }
 
-variable "rg_test_us_01_name" {
+variable "rg_stg_we_001_name" {
   type = string
 }
 
-variable "rg_test_us_01_location" {
+variable "rg_stg_we_001_location" {
   type = string
 }
 
@@ -39,19 +39,19 @@ variable "rg_test_us_01_location" {
 # VNets
 ############################
 
-variable "vnet_dev_001_name" {
+variable "vnet_dev_ci_001_name" {
   type = string
 }
 
-variable "address_dev_001_space" {
+variable "vnet_dev_ci_001_address_space" {
   type = list(string)
 }
 
-variable "vnet_test_us_01_name" {
+variable "vnet_test_us_001_name" {
   type = string
 }
 
-variable "address_test_us_01_space" {
+variable "vnet_test_us_001_address_space" {
   type = list(string)
 }
 
@@ -60,19 +60,19 @@ variable "address_test_us_01_space" {
 # Subnets
 ############################
 
-variable "subnet_dev_name" {
+variable "subnet_dev_ci_001_name" {
   type = string
 }
 
-variable "subnet_dev_prefix" {
+variable "subnet_dev_ci_001_prefix" {
   type = list(string)
 }
 
-variable "subnet_test_name" {
+variable "subnet_test_us_001_name" {
   type = string
 }
 
-variable "subnet_test_prefix" {
+variable "subnet_test_us_001_prefix" {
   type = list(string)
 }
 
@@ -81,7 +81,7 @@ variable "subnet_test_prefix" {
 # Public IP
 ############################
 
-variable "public_ip_dev_name" {
+variable "pip_dev_ci_001_name" {
   type = string
 }
 
@@ -90,16 +90,16 @@ variable "public_ip_dev_name" {
 # NIC
 ############################
 
-variable "nic_dev_name" {
+variable "nic_dev_ci_001_name" {
   type = string
 }
 
 
 ############################
-# Virtual Machine
+# VM
 ############################
 
-variable "vm_dev_name" {
+variable "vm_dev_ci_001_name" {
   type = string
 }
 
@@ -112,9 +112,6 @@ variable "admin_username" {
 }
 
 variable "admin_password" {
-
-  type = string
-
+  type      = string
   sensitive = true
-
 }

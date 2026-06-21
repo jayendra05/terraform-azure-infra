@@ -1,7 +1,3 @@
-############################
-# Resource Groups
-############################
-
 rg_dev_ci_001_name     = "rg-dev-ci-001"
 rg_dev_ci_001_location = "Central India"
 
@@ -14,11 +10,6 @@ rg_prod_we_001_location = "West Europe"
 rg_stg_we_001_name     = "rg-stg-we-001"
 rg_stg_we_001_location = "West Europe"
 
-
-
-############################
-# VNets
-############################
 
 vnet_dev_ci_001_name = "vnet-dev-ci-001"
 
@@ -34,11 +25,6 @@ vnet_test_us_001_address_space = [
 ]
 
 
-
-############################
-# Subnets
-############################
-
 subnet_dev_ci_001_name = "subnet-dev-ci-001"
 
 subnet_dev_ci_001_prefix = [
@@ -53,26 +39,10 @@ subnet_test_us_001_prefix = [
 ]
 
 
-
-############################
-# Public IP
-############################
-
 pip_dev_ci_001_name = "pip-dev-ci-001"
-
-
-
-############################
-# Network Interface
-############################
 
 nic_dev_ci_001_name = "nic-dev-ci-001"
 
-
-
-############################
-# Virtual Machine
-############################
 
 vm_dev_ci_001_name = "vm-dev-ci-001"
 
