@@ -1,3 +1,7 @@
+#############################################
+# RESOURCE GROUP VALUES
+#############################################
+
 rg_dev_ci_001_name     = "rg-dev-ci-001"
 rg_dev_ci_001_location = "Central India"
 
@@ -10,6 +14,10 @@ rg_prod_we_001_location = "West Europe"
 rg_stg_we_001_name     = "rg-stg-we-001"
 rg_stg_we_001_location = "West Europe"
 
+
+#############################################
+# VNET VALUES
+#############################################
 
 vnet_dev_ci_001_name = "vnet-dev-ci-001"
 
@@ -24,13 +32,17 @@ vnet_test_us_001_address_space = [
   "192.168.0.0/16"
 ]
 
-vnet_stg_we_001_name = "vnet-stg_we_001"
+
+vnet_stg_we_001_name = "vnet-stg-we-001"
 
 vnet_stg_we_001_address_space = [
   "192.164.0.0/16"
 ]
 
 
+#############################################
+# SUBNET VALUES
+#############################################
 
 subnet_dev_ci_001_name = "subnet-dev-ci-001"
 
@@ -46,9 +58,30 @@ subnet_test_us_001_prefix = [
 ]
 
 
+#############################################
+# NSG VALUES
+#############################################
+
+nsg_dev_ci_001_name = "nsg-dev-ci-001"
+
+
+#############################################
+# PUBLIC IP VALUES
+#############################################
+
 pip_dev_ci_001_name = "pip-dev-ci-001"
 
+
+#############################################
+# NIC VALUES
+#############################################
+
 nic_dev_ci_001_name = "nic-dev-ci-001"
+
+
+#############################################
+# VM VALUES
+#############################################
 
 vm_dev_ci_001_name = "vm-dev-ci-001"
 
@@ -57,5 +90,3 @@ vm_size = "Standard_B2ats_v2"
 admin_username = "azureuser"
 
 admin_password = "Password@123456"
-
-nsg_dev_ci_001_name = "nsg-dev-ci-001"
