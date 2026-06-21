@@ -16,13 +16,18 @@ module "rg_staging" {
   location            = var.rg_staging_location
 }
 
+module "rg_test_001" {
+  source              = "./modules/rg"
+  resource_group_name = var.rg_test_01_name
+  location            = var.rg_test_01_location
+}
 
-module "vnet_dev_001" {
+module "vnet_test_001" {
 
   source              = "./modules/vnet"
-  vnet_name           = var.vnet_dev_001_name
-  location            = var.rg_dev_location
-  resource_group_name = var.rg_dev_name
-  address_space       = var.address_dev_001_space
+  vnet_name           = var.vnet_test_01_name
+  location            = var.rg_test_01_location
+  resource_group_name = var.rg_test_01_name
+  address_space       = var.address_test_01_space
 
 }
