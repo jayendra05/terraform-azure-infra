@@ -9,3 +9,7 @@ variable "rg_staging_location" {}
 
 variable "vnet_dev_001_name" {}
 variable "address_dev_001_space" {}
+
+
+variable "rg_test_us_01_name" {}
+variable "rg_rg_test_us_01_location" {}

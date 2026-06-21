@@ -28,3 +28,21 @@ module "vnet_dev_001" {
     module.rg_dev
   ]
 }
+
+
+module "rg_test_us_01" {
+  source              = "./modules/rg"
+  resource_group_name = var.rg_test_us_01_name
+  location            = var.rg_test_us_01_location
+}
+
+module "vnet_test_us_01" {
+  source              = "./modules/vnet"
+  vnet_name           = var.vnet_test_us_01_name
+  resource_group_name = module.rg_test_us_01.resource_group_name
+  location            = module.rg_test_us_01.location
+  address_space       = var.address_test_us_01_space
+  depends_on = [
+    module.rg_test_us_01
+  ]
+}
