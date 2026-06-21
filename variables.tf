@@ -16,3 +16,9 @@ variable "rg_test_us_01_location" {}
 
 variable "vnet_test_us_01_name" {}
 variable "address_test_us_01_space" {}
+
+variable "subnet_dev_name" {}
+variable "subnet_dev_prefix" {}
+
+variable "subnet_test_name" {}
+variable "subnet_test_prefix" {}
