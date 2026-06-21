@@ -24,6 +24,13 @@ vnet_test_us_001_address_space = [
   "192.168.0.0/16"
 ]
 
+vnet_stg_we_001_name = "vnet-stg_we_001"
+
+vnet_stg_we_001_address_space = [
+  "192.164.0.0/16"
+]
+
+
 
 subnet_dev_ci_001_name = "subnet-dev-ci-001"
 

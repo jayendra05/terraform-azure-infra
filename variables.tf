@@ -20,6 +20,13 @@ variable "vnet_test_us_001_address_space" {
   type = list(string)
 }
 
+
+variable "vnet_stg_we_001_name" { type = string }
+variable "vnet_stg_we_001_address_space" {
+  type = list(string)
+}
+
+
 variable "subnet_dev_ci_001_name" { type = string }
 variable "subnet_dev_ci_001_prefix" {
   type = list(string)

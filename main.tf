@@ -54,6 +54,17 @@ module "vnet_test_us_001" {
   address_space       = var.vnet_test_us_001_address_space
 }
 
+module "vnet_stg_we_001" {
+
+  source = "./modules/vnet"
+
+  vnet_name           = var.vnet_stg_we_001_name
+  resource_group_name = module.rg_stg_we_001.resource_group_name
+  location            = module.rg_stg_we_001.location
+  address_space       = var.vnet_stg_we_001_address_space
+}
+
+
 #############################################
 # SUBNET
 #############################################
