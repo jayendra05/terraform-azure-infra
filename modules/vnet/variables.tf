@@ -1,7 +1,15 @@
-variable "vnet_name" {}
+variable "vnet_name" {
+  type = string
+}
 
-variable "resource_group_name" {}
+variable "resource_group_name" {
+  type = string
+}
 
-variable "location" {}
+variable "location" {
+  type = string
+}
 
-variable "address_space" {}
+variable "address_space" {
+  type = list(string)
+}
