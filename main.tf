@@ -97,7 +97,7 @@ module "nsg_dev_ci_001" {
 
   source = "./modules/nsg"
 
-  nsg_name           = var.nsg_dev_ci_001_name
+  nsg_name            = var.nsg_dev_ci_001_name
   resource_group_name = module.rg_dev_ci_001.resource_group_name
   location            = module.rg_dev_ci_001.location
 }
@@ -113,7 +113,7 @@ module "nsg_assoc_dev_ci_001" {
 
   subnet_id = module.subnet_dev_ci_001.subnet_id
 
-  nsg_id    = module.nsg_dev_ci_001.nsg_id
+  nsg_id = module.nsg_dev_ci_001.nsg_id
 }
 
 #############################################
