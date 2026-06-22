@@ -23,6 +23,13 @@ module "rg_prod_we_001" {
   location            = var.rg_prod_we_001_location
 }
 
+module "rg_prod_ci_001" {
+  source = "./modules/rg"
+
+  resource_group_name = var.rg_prod_ci_001_name
+  location            = var.rg_prod_ci_001_location
+}
+
 module "rg_stg_we_001" {
   source = "./modules/rg"
 
@@ -30,12 +37,13 @@ module "rg_stg_we_001" {
   location            = var.rg_stg_we_001_location
 }
 
-module "rg_prod_ci_001" {
+module "rg_stg_ci_001" {
   source = "./modules/rg"
 
-  resource_group_name = var.rg_prod_ci_001_name
-  location            = var.rg_prod_ci_001_location
+  resource_group_name = var.rg_stg_ci_001_name
+  location            = var.rg_stg_ci_001_location
 }
+
 
 #############################################
 # VNET
@@ -71,6 +79,16 @@ module "vnet_stg_we_001" {
   address_space       = var.vnet_stg_we_001_address_space
 }
 
+module "vnet_stg_ci_001" {
+
+  source = "./modules/vnet"
+
+  vnet_name           = var.vnet_stg_ci_001_name
+  resource_group_name = module.rg_stg_ci_001.resource_group_name
+  location            = module.rg_stg_ci_001.location
+  address_space       = var.vnet_stg_ci_001_address_space
+}
+
 module "vnet_prod_ci_001" {
 
   source = "./modules/vnet"
@@ -103,6 +121,16 @@ module "subnet_test_us_001" {
   resource_group_name  = module.rg_test_us_001.resource_group_name
   virtual_network_name = module.vnet_test_us_001.vnet_name
   address_prefixes     = var.subnet_test_us_001_prefix
+}
+
+module "subnet_stg_ci_001" {
+
+  source = "./modules/subnet"
+
+  subnet_name          = var.subnet_stg_ci_001_name
+  resource_group_name  = module.rg_stg_ci_001.resource_group_name
+  virtual_network_name = module.vnet_stg_ci_001.vnet_name
+  address_prefixes     = var.subnet_stg_ci_001_prefix
 }
 
 module "subnet_prod_ci_001" {
@@ -196,6 +224,8 @@ module "test_to_dev_peering" {
   remote_virtual_network_id = module.vnet_dev_ci_001.vnet_id
 }
 
+
+
 module "dev_to_prod_ci_peering" {
 
   source = "./modules/vnet_peering"
@@ -214,6 +244,26 @@ module "prod_to_dev_ci_peering" {
   resource_group_name       = module.rg_prod_ci_001.resource_group_name
   virtual_network_name      = module.vnet_prod_ci_001.vnet_name
   remote_virtual_network_id = module.vnet_dev_ci_001.vnet_id
+}
+
+module "stg-we_to_stg_ci_peering" {
+
+  source = "./modules/vnet_peering"
+
+  peering_name              = "peer-stg-ci-to-stg-we"
+  resource_group_name       = module.rg_stg_ci_001.resource_group_name
+  virtual_network_name      = module.vnet_stg_ci_001.vnet_name
+  remote_virtual_network_id = module.vnet_stg_we_001.vnet_id
+}
+
+module "prod_to_dev_ci_peering" {
+
+  source = "./modules/vnet_peering"
+
+  peering_name              = "peer-stg-we-to-stg-ci"
+  resource_group_name       = module.rg_stg_we_001.resource_group_name
+  virtual_network_name      = module.vnet_stg_we_001.vnet_name
+  remote_virtual_network_id = module.vnet_stg_ci_001.vnet_id
 }
 
 #############################################
