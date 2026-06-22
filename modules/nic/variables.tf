@@ -15,5 +15,6 @@ variable "subnet_id" {
 }
 
 variable "public_ip_id" {
-  type = string
+  type    = string
+  default = null
 }

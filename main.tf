@@ -354,6 +354,16 @@ module "nic_dev_ci_001" {
   public_ip_id        = module.pip_dev_ci_001.public_ip_id
 }
 
+module "nic_dev_ci_002" {
+
+  source = "./modules/nic"
+
+  nic_name            = var.nic_dev_ci_002_name
+  resource_group_name = module.rg_dev_ci_001.resource_group_name
+  location            = module.rg_dev_ci_001.location
+  subnet_id           = module.subnet_dev_ci_001.subnet_id
+}
+
 #############################################
 # VM
 #############################################
@@ -377,6 +387,28 @@ module "vm_dev_ci_001" {
   admin_password = var.admin_password
 
   data_disks = var.data_disks
+
+}
+
+module "vm_dev_ci_002" {
+
+  source = "./modules/vm"
+
+  vm_name = var.vm_dev_ci_002_name
+
+  resource_group_name = module.rg_dev_ci_001.resource_group_name
+
+  location = module.rg_dev_ci_001.location
+
+  vm_size = var.vm_size
+
+  nic_id = module.nic_dev_ci_002.nic_id
+
+  admin_username = var.admin_username
+
+  admin_password = var.admin_password
+
+  data_disks = []
 
 }
 

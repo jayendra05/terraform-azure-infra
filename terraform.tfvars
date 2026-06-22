@@ -114,12 +114,16 @@ pip_dev_ci_001_name = "pip-dev-ci-001"
 
 nic_dev_ci_001_name = "nic-dev-ci-001"
 
+nic_dev_ci_002_name = "nic-dev-ci-002"
+
 
 #############################################
 # VM VALUES
 #############################################
 
 vm_dev_ci_001_name = "vm-dev-ci-001"
+
+vm_dev_ci_002_name = "vm-dev-ci-002"
 
 vm_size = "Standard_B2ats_v2"
 

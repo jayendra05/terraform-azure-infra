@@ -158,12 +158,20 @@ variable "nic_dev_ci_001_name" {
   type = string
 }
 
+variable "nic_dev_ci_002_name" {
+  type = string
+}
+
 
 #############################################
 # VM VARIABLES
 #############################################
 
 variable "vm_dev_ci_001_name" {
+  type = string
+}
+
+variable "vm_dev_ci_002_name" {
   type = string
 }
 
