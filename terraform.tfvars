@@ -136,12 +136,12 @@ admin_password = "Password@123456"
 data_disks = [
 
   {
-    name = "disk-dev-001_data-disk-2"
+    name = "disk-dev-001-data-disk-1"
     size = 4
   },
 
   {
-    name = "disk-dev-001_data-disk-2"
+    name = "disk-dev-001-data-disk-2"
     size = 8
   }
 
