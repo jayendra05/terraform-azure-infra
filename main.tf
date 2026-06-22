@@ -228,7 +228,7 @@ resource "azurerm_network_security_rule" "allow_8080_dev_ci_001" {
 
   resource_group_name         = module.rg_dev_ci_001.resource_group_name
   network_security_group_name = module.nsg_dev_ci_001.nsg_name
-}
+} 
 
 resource "azurerm_network_security_rule" "allow_8000_dev_ci_001" {
   name      = "Allow-8000"
