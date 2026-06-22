@@ -319,3 +319,20 @@ module "vm_dev_ci_001" {
   data_disks = var.data_disks
 
 }
+
+
+#############################################
+# STORAGE ACCOUNT
+#############################################
+
+module "storage_dev_ci_001" {
+
+  source = "./modules/storage_account"
+
+  storage_account_name = var.storage_dev_ci_001_name
+
+  resource_group_name  = module.rg_dev_ci_001.resource_group_name
+
+  location             = module.rg_dev_ci_001.location
+
+}

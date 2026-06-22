@@ -197,3 +197,13 @@ variable "data_disks" {
   default = []
 
 }
+
+#############################################
+# Storage ACCOUNT
+#############################################
+
+variable "storage_dev_ci_001_name" {
+
+  type = string
+
+}
