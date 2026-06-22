@@ -327,19 +327,6 @@ module "stg_we_to_stg_ci_peering" {
 }
 
 #############################################
-# PUBLIC IP
-#############################################
-
-module "pip_dev_ci_001" {
-
-  source = "./modules/public_ip"
-
-  public_ip_name      = var.pip_dev_ci_001_name
-  resource_group_name = module.rg_dev_ci_001.resource_group_name
-  location            = module.rg_dev_ci_001.location
-}
-
-#############################################
 # NIC
 #############################################
 
@@ -351,7 +338,6 @@ module "nic_dev_ci_001" {
   resource_group_name = module.rg_dev_ci_001.resource_group_name
   location            = module.rg_dev_ci_001.location
   subnet_id           = module.subnet_dev_ci_001.subnet_id
-  public_ip_id        = module.pip_dev_ci_001.public_ip_id
 }
 
 module "nic_dev_ci_002" {
