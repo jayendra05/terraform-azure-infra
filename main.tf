@@ -246,7 +246,7 @@ module "prod_to_dev_ci_peering" {
   remote_virtual_network_id = module.vnet_dev_ci_001.vnet_id
 }
 
-module "stg-we_to_stg_ci_peering" {
+module "stg_ci_to_stg_we_peering" {
 
   source = "./modules/vnet_peering"
 
@@ -256,7 +256,7 @@ module "stg-we_to_stg_ci_peering" {
   remote_virtual_network_id = module.vnet_stg_we_001.vnet_id
 }
 
-module "prod_to_dev_ci_peering" {
+module "stg_we_to_stg_ci_peering" {
 
   source = "./modules/vnet_peering"
 
