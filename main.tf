@@ -136,25 +136,25 @@ module "nsg_dev_ci_001" {
 
 resource "azurerm_network_security_rule" "allow_8080_dev_ci_001" {
 
-  name                        = "Allow-8080"
+  name = "Allow-8080"
 
-  priority                    = 130
+  priority = 130
 
-  direction                   = "Inbound"
+  direction = "Inbound"
 
-  access                      = "Allow"
+  access = "Allow"
 
-  protocol                    = "Tcp"
+  protocol = "Tcp"
 
-  source_port_range           = "*"
+  source_port_range = "*"
 
-  destination_port_range      = "8080"
+  destination_port_range = "8080"
 
-  source_address_prefix       = "*"
+  source_address_prefix = "*"
 
-  destination_address_prefix  = "*"
+  destination_address_prefix = "*"
 
-  resource_group_name         = module.rg_dev_ci_001.resource_group_name
+  resource_group_name = module.rg_dev_ci_001.resource_group_name
 
   network_security_group_name = module.nsg_dev_ci_001.nsg_name
 }
