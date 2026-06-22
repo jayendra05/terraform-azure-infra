@@ -4,38 +4,37 @@ output "vm_id" {
 
 }
 
+
 output "vm_name" {
 
   value = azurerm_linux_virtual_machine.this.name
 
 }
 
-output "vm_size" {
 
-  value = azurerm_linux_virtual_machine.this.size
+output "vm_private_ip" {
 
-}
-
-output "vm_location" {
-
-  value = azurerm_linux_virtual_machine.this.location
+  value = azurerm_linux_virtual_machine.this.private_ip_address
 
 }
 
-output "computer_name" {
 
-  value = azurerm_linux_virtual_machine.this.computer_name
+output "vm_public_ip" {
 
-}
-
-output "admin_username" {
-
-  value = azurerm_linux_virtual_machine.this.admin_username
+  value = azurerm_linux_virtual_machine.this.public_ip_address
 
 }
 
-output "network_interface_ids" {
 
-  value = azurerm_linux_virtual_machine.this.network_interface_ids
+output "data_disk_id" {
+
+  value = azurerm_managed_disk.data_disk.id
+
+}
+
+
+output "data_disk_name" {
+
+  value = azurerm_managed_disk.data_disk.name
 
 }

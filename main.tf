@@ -307,8 +307,13 @@ module "vm_dev_ci_001" {
   location            = module.rg_dev_ci_001.location
 
   vm_size = var.vm_size
-  nic_id  = module.nic_dev_ci_001.nic_id
+
+  nic_id = module.nic_dev_ci_001.nic_id
 
   admin_username = var.admin_username
+
   admin_password = var.admin_password
+
+  data_disks = var.data_disks
+
 }

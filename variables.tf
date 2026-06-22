@@ -179,3 +179,22 @@ variable "admin_password" {
   type      = string
   sensitive = true
 }
+
+#############################################
+# DATA DISK
+#############################################
+
+
+variable "data_disks" {
+
+  type = list(object({
+
+    name                 = string
+    disk_size_gb         = number
+    storage_account_type = string
+    lun                  = number
+
+  }))
+
+  default = []
+}

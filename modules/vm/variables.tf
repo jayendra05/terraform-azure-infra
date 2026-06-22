@@ -4,11 +4,13 @@ variable "vm_name" {
 
 }
 
+
 variable "resource_group_name" {
 
   type = string
 
 }
+
 
 variable "location" {
 
@@ -16,11 +18,13 @@ variable "location" {
 
 }
 
+
 variable "vm_size" {
 
   type = string
 
 }
+
 
 variable "nic_id" {
 
@@ -28,16 +32,32 @@ variable "nic_id" {
 
 }
 
+
 variable "admin_username" {
 
   type = string
 
 }
 
+
 variable "admin_password" {
 
   type = string
 
   sensitive = true
+
+}
+
+
+variable "data_disk_name" {
+
+  type = string
+
+}
+
+
+variable "data_disk_size" {
+
+  type = number
 
 }

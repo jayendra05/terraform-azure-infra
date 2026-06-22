@@ -126,3 +126,20 @@ vm_size = "Standard_B2ats_v2"
 admin_username = "azureuser"
 
 admin_password = "Password@123456"
+
+
+#############################################
+# DATA DISK
+#############################################
+
+
+data_disks = [
+
+  {
+    name                 = "datadisk-dev-001"
+    disk_size_gb         = 4
+    storage_account_type = "Standard_LRS"
+    lun                  = 0
+  }
+
+]
