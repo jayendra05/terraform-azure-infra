@@ -24,7 +24,7 @@ rg_prod_ci_001_location = "Central India"
 vnet_dev_ci_001_name = "vnet-dev-ci-001"
 
 vnet_dev_ci_001_address_space = [
-  "192.62.0.0/24"
+  "10.0.0.0/16"
 ]
 
 
@@ -56,7 +56,7 @@ vnet_prod_ci_001_address_space = [
 subnet_dev_ci_001_name = "subnet-dev-ci-001"
 
 subnet_dev_ci_001_prefix = [
-  "192.62.0.0/27"
+  "10.0.1.0/24"
 ]
 
 
