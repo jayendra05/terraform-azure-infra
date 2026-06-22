@@ -302,9 +302,11 @@ module "vm_dev_ci_001" {
 
   source = "./modules/vm"
 
-  vm_name             = var.vm_dev_ci_001_name
+  vm_name = var.vm_dev_ci_001_name
+
   resource_group_name = module.rg_dev_ci_001.resource_group_name
-  location            = module.rg_dev_ci_001.location
+
+  location = module.rg_dev_ci_001.location
 
   vm_size = var.vm_size
 

@@ -1,63 +1,42 @@
 variable "vm_name" {
-
   type = string
-
 }
-
 
 variable "resource_group_name" {
-
   type = string
-
 }
-
 
 variable "location" {
-
   type = string
-
 }
-
 
 variable "vm_size" {
-
   type = string
-
 }
-
 
 variable "nic_id" {
-
   type = string
-
 }
-
 
 variable "admin_username" {
-
   type = string
-
 }
-
 
 variable "admin_password" {
-
-  type = string
-
+  type      = string
   sensitive = true
-
 }
 
+variable "data_disks" {
 
-variable "data_disk_name" {
+  type = list(object({
 
-  type = string
+    name = string
 
-}
+    size = number
 
+  }))
 
-variable "data_disk_size" {
-
-  type = number
+  default = []
 
 }

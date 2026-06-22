@@ -136,10 +136,11 @@ admin_password = "Password@123456"
 data_disks = [
 
   {
-    name                 = "datadisk-dev-001"
-    disk_size_gb         = 4
-    storage_account_type = "Standard_LRS"
-    lun                  = 0
+
+    name = "disk-dev-001"
+
+    size = 4
+
   }
 
 ]

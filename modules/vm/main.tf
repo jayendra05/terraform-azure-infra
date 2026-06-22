@@ -8,7 +8,6 @@ resource "azurerm_linux_virtual_machine" "this" {
 
   size = var.vm_size
 
-
   admin_username = var.admin_username
 
   admin_password = var.admin_password
@@ -50,7 +49,16 @@ resource "azurerm_linux_virtual_machine" "this" {
 
 resource "azurerm_managed_disk" "data_disk" {
 
-  name = var.data_disk_name
+  for_each = {
+
+    for disk in var.data_disks :
+
+    disk.name => disk
+
+  }
+
+
+  name = each.value.name
 
   location = var.location
 
@@ -60,19 +68,30 @@ resource "azurerm_managed_disk" "data_disk" {
 
   create_option = "Empty"
 
-  disk_size_gb = var.data_disk_size
+  disk_size_gb = each.value.size
 
 }
 
 
 
-resource "azurerm_virtual_machine_data_disk_attachment" "data_disk_attach" {
+resource "azurerm_virtual_machine_data_disk_attachment" "attach" {
 
-  managed_disk_id = azurerm_managed_disk.data_disk.id
+  for_each = azurerm_managed_disk.data_disk
+
+
+  managed_disk_id = each.value.id
 
   virtual_machine_id = azurerm_linux_virtual_machine.this.id
 
-  lun = 0
+
+  lun = index(
+
+    keys(azurerm_managed_disk.data_disk),
+
+    each.key
+
+  )
+
 
   caching = "ReadWrite"
 
