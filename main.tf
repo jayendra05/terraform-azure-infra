@@ -331,8 +331,8 @@ module "storage_dev_ci_001" {
 
   storage_account_name = var.storage_dev_ci_001_name
 
-  resource_group_name  = module.rg_dev_ci_001.resource_group_name
+  resource_group_name = module.rg_dev_ci_001.resource_group_name
 
-  location             = module.rg_dev_ci_001.location
+  location = module.rg_dev_ci_001.location
 
 }
