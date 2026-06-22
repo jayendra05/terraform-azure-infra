@@ -137,7 +137,7 @@ data_disks = [
 
   {
     name = "disk-dev-001-data-disk-1"
-    size = 4
+    size = 8
   },
 
 
