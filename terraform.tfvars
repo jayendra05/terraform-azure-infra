@@ -14,6 +14,8 @@ rg_prod_we_001_location = "West Europe"
 rg_stg_we_001_name     = "rg-stg-we-001"
 rg_stg_we_001_location = "West Europe"
 
+rg_prod_ci_001_name     = "rg-prod-ci-001"
+rg_prod_ci_001_location = "Central India"
 
 #############################################
 # VNET VALUES
@@ -22,7 +24,7 @@ rg_stg_we_001_location = "West Europe"
 vnet_dev_ci_001_name = "vnet-dev-ci-001"
 
 vnet_dev_ci_001_address_space = [
-  "10.0.0.0/16"
+  "192.62.0.0/24"
 ]
 
 
@@ -40,6 +42,13 @@ vnet_stg_we_001_address_space = [
 ]
 
 
+vnet_prod_ci_001_name = "vnet-prod-ci-001"
+
+vnet_prod_ci_001_address_space = [
+  "192.62.1.0/24"
+]
+
+
 #############################################
 # SUBNET VALUES
 #############################################
@@ -47,7 +56,7 @@ vnet_stg_we_001_address_space = [
 subnet_dev_ci_001_name = "subnet-dev-ci-001"
 
 subnet_dev_ci_001_prefix = [
-  "10.0.1.0/24"
+  "192.62.0.0/27"
 ]
 
 
@@ -55,6 +64,12 @@ subnet_test_us_001_name = "subnet-test-us-001"
 
 subnet_test_us_001_prefix = [
   "192.168.1.0/24"
+]
+
+subnet_prod_ci_001_name = "subnet-prod-ci-001"
+
+subnet_prod_ci_001_prefix = [
+  "192.62.1.0/27"
 ]
 
 

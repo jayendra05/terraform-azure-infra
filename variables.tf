@@ -34,6 +34,13 @@ variable "rg_stg_we_001_location" {
   type = string
 }
 
+variable "rg_prod_ci_001_name" {
+  type = string
+}
+
+variable "rg_prod_ci_001_location" {
+  type = string
+}
 
 #############################################
 # VNET VARIABLES
@@ -63,6 +70,14 @@ variable "vnet_stg_we_001_address_space" {
   type = list(string)
 }
 
+variable "vnet_prod_ci_001_name" {
+  type = string
+}
+
+variable "vnet_prod_ci_001_address_space" {
+  type = list(string)
+}
+
 
 #############################################
 # SUBNET VARIABLES
@@ -81,6 +96,14 @@ variable "subnet_test_us_001_name" {
 }
 
 variable "subnet_test_us_001_prefix" {
+  type = list(string)
+}
+
+variable "subnet_prod_ci_001_name" {
+  type = string
+}
+
+variable "subnet_prod_ci_001_prefix" {
   type = list(string)
 }
 
