@@ -162,53 +162,88 @@ module "nsg_dev_ci_001" {
 # EXTRA NSG RULE ONLY FOR DEV
 #############################################
 
+resource "azurerm_network_security_rule" "allow_ssh" {
+  name                        = "Allow-SSH"
+  priority                    = 100
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+
+  source_port_range           = "*"
+  destination_port_range      = "22"
+
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+
+  resource_group_name         = module.rg_dev_ci_001.resource_group_name
+  network_security_group_name = module.nsg_dev_ci_001.nsg_name
+}
+
+resource "azurerm_network_security_rule" "allow_http" {
+  name                        = "Allow-HTTP"
+  priority                    = 110
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+
+  source_port_range           = "*"
+  destination_port_range      = "80"
+
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+
+  resource_group_name         = module.rg_dev_ci_001.resource_group_name
+  network_security_group_name = module.nsg_dev_ci_001.nsg_name
+}
+
+resource "azurerm_network_security_rule" "allow_https" {
+  name                        = "Allow-HTTPS"
+  priority                    = 120
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+
+  source_port_range           = "*"
+  destination_port_range      = "443"
+
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
+
+  resource_group_name         = module.rg_dev_ci_001.resource_group_name
+  network_security_group_name = module.nsg_dev_ci_001.nsg_name
+}
+
 resource "azurerm_network_security_rule" "allow_8080_dev_ci_001" {
+  name                        = "Allow-8080"
+  priority                    = 130
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
 
-  name = "Allow-8080"
+  source_port_range           = "*"
+  destination_port_range      = "8080"
 
-  priority = 130
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
 
-  direction = "Inbound"
-
-  access = "Allow"
-
-  protocol = "Tcp"
-
-  source_port_range = "*"
-
-  destination_port_range = "8080"
-
-  source_address_prefix = "*"
-
-  destination_address_prefix = "*"
-
-  resource_group_name = module.rg_dev_ci_001.resource_group_name
-
+  resource_group_name         = module.rg_dev_ci_001.resource_group_name
   network_security_group_name = module.nsg_dev_ci_001.nsg_name
 }
 
 resource "azurerm_network_security_rule" "allow_8000_dev_ci_001" {
+  name                        = "Allow-8000"
+  priority                    = 140
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
 
-  name = "Allow-8000"
+  source_port_range           = "*"
+  destination_port_range      = "8000"
 
-  priority = 140
+  source_address_prefix       = "*"
+  destination_address_prefix  = "*"
 
-  direction = "Inbound"
-
-  access = "Allow"
-
-  protocol = "Tcp"
-
-  source_port_range = "*"
-
-  destination_port_range = "8000"
-
-  source_address_prefix = "*"
-
-  destination_address_prefix = "*"
-
-  resource_group_name = module.rg_dev_ci_001.resource_group_name
-
+  resource_group_name         = module.rg_dev_ci_001.resource_group_name
   network_security_group_name = module.nsg_dev_ci_001.nsg_name
 }
 
