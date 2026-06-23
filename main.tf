@@ -465,7 +465,7 @@ module "vm_dev_ci_002" {
 
   admin_password = var.admin_password
 
-  data_disks = []
+  data_disks = var.data_disks_dev_ci_002
 
 }
 

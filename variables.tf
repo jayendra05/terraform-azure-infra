@@ -206,6 +206,20 @@ variable "data_disks" {
 
 }
 
+variable "data_disks_dev_ci_002" {
+
+  type = list(object({
+
+    name = string
+
+    size = number
+
+  }))
+
+  default = []
+
+}
+
 #############################################
 # Storage ACCOUNT
 #############################################
