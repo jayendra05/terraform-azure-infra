@@ -361,6 +361,31 @@ module "stg_we_to_stg_ci_peering" {
 }
 
 #############################################
+# LOAD BALANCER
+#############################################
+
+module "lb_dev_ci_001" {
+
+  source = "./modules/load_balancer"
+
+  lb_name             = var.lb_dev_ci_001_name
+  resource_group_name = module.rg_dev_ci_001.resource_group_name
+  location            = module.rg_dev_ci_001.location
+  subnet_id           = module.subnet_dev_ci_001.subnet_id
+
+  lb_rules = [
+    {
+      name = "Allow-8081"
+      port = 8081
+    },
+    {
+      name = "Allow-8082"
+      port = 8082
+    }
+  ]
+}
+
+#############################################
 # NIC
 #############################################
 
@@ -382,6 +407,18 @@ module "nic_dev_ci_002" {
   resource_group_name = module.rg_dev_ci_001.resource_group_name
   location            = module.rg_dev_ci_001.location
   subnet_id           = module.subnet_dev_ci_001.subnet_id
+}
+
+resource "azurerm_network_interface_backend_address_pool_association" "nic_dev_ci_001_lb" {
+  network_interface_id    = module.nic_dev_ci_001.nic_id
+  ip_configuration_name   = "internal"
+  backend_address_pool_id = module.lb_dev_ci_001.backend_address_pool_id
+}
+
+resource "azurerm_network_interface_backend_address_pool_association" "nic_dev_ci_002_lb" {
+  network_interface_id    = module.nic_dev_ci_002.nic_id
+  ip_configuration_name   = "internal"
+  backend_address_pool_id = module.lb_dev_ci_001.backend_address_pool_id
 }
 
 #############################################
