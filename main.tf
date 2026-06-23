@@ -247,6 +247,40 @@ resource "azurerm_network_security_rule" "allow_8000_dev_ci_001" {
   network_security_group_name = module.nsg_dev_ci_001.nsg_name
 }
 
+resource "azurerm_network_security_rule" "allow_8081_dev_ci_002" {
+  name      = "Allow-8081"
+  priority  = 150
+  direction = "Inbound"
+  access    = "Allow"
+  protocol  = "Tcp"
+
+  source_port_range      = "*"
+  destination_port_range = "8081"
+
+  source_address_prefix      = "*"
+  destination_address_prefix = "*"
+
+  resource_group_name         = module.rg_dev_ci_001.resource_group_name
+  network_security_group_name = module.nsg_dev_ci_001.nsg_name
+}
+
+resource "azurerm_network_security_rule" "allow_8082_dev_ci_002" {
+  name      = "Allow-8082"
+  priority  = 160
+  direction = "Inbound"
+  access    = "Allow"
+  protocol  = "Tcp"
+
+  source_port_range      = "*"
+  destination_port_range = "8082"
+
+  source_address_prefix      = "*"
+  destination_address_prefix = "*"
+
+  resource_group_name         = module.rg_dev_ci_001.resource_group_name
+  network_security_group_name = module.nsg_dev_ci_001.nsg_name
+}
+
 #############################################
 # NSG ASSOCIATION
 #############################################
