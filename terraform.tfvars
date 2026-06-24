@@ -137,26 +137,13 @@ admin_password = "Password@123456"
 #############################################
 
 
-data_disks = [
-
-  {
-    name = "disk-dev-001-data-disk-1"
-    size = 8
-  },
-
-
-]
+data_disks = []
 
 data_disks_dev_ci_002 = [
 
   {
     name = "disk-dev-002-data-disk-1"
     size = 4
-  },
-
-  {
-    name = "disk-dev-002-data-disk-2"
-    size = 5
   },
 
 ]
