@@ -138,7 +138,7 @@ key_vault_resource_group_name = "rg-dev-ci-001"
 admin_username_secret_name = "vm-admin-username"
 
 admin_password_secret_name = "vm-admin-password"
- 
+
 
 #############################################
 # DATA DISK VALUES
