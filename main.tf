@@ -159,7 +159,7 @@ module "nsg_dev_ci_001" {
 
 
 #############################################
-# EXTRA NSG RULE ONLY FOR DEV
+# DEV NSG INBOUND RULES
 #############################################
 
 resource "azurerm_network_security_rule" "allow_ssh" {
@@ -361,7 +361,7 @@ module "stg_we_to_stg_ci_peering" {
 }
 
 #############################################
-# LOAD BALANCER
+# DEV INTERNAL LOAD BALANCER
 #############################################
 
 module "lb_dev_ci_001" {
@@ -375,18 +375,18 @@ module "lb_dev_ci_001" {
 
   lb_rules = [
     {
-      name = "Allow-8081"
+      name = "lb-rule-8081"
       port = 8081
     },
     {
-      name = "Allow-8082"
+      name = "lb-rule-8082"
       port = 8082
     }
   ]
 }
 
 #############################################
-# NIC
+# DEV NETWORK INTERFACES
 #############################################
 
 module "nic_dev_ci_001" {
@@ -409,6 +409,25 @@ module "nic_dev_ci_002" {
   subnet_id           = module.subnet_dev_ci_001.subnet_id
 }
 
+#############################################
+# VM ADMIN CREDENTIALS FROM KEY VAULT
+#############################################
+
+data "azurerm_key_vault" "vm_credentials" {
+  name                = var.key_vault_name
+  resource_group_name = var.key_vault_resource_group_name
+}
+
+data "azurerm_key_vault_secret" "vm_admin_username" {
+  name         = var.admin_username_secret_name
+  key_vault_id = data.azurerm_key_vault.vm_credentials.id
+}
+
+data "azurerm_key_vault_secret" "vm_admin_password" {
+  name         = var.admin_password_secret_name
+  key_vault_id = data.azurerm_key_vault.vm_credentials.id
+}
+
 resource "azurerm_network_interface_backend_address_pool_association" "nic_dev_ci_001_lb" {
   network_interface_id    = module.nic_dev_ci_001.nic_id
   ip_configuration_name   = "internal"
@@ -422,7 +441,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "nic_dev_c
 }
 
 #############################################
-# VM
+# DEV VIRTUAL MACHINES
 #############################################
 
 module "vm_dev_ci_001" {
@@ -439,9 +458,9 @@ module "vm_dev_ci_001" {
 
   nic_id = module.nic_dev_ci_001.nic_id
 
-  admin_username = var.admin_username
+  admin_username = data.azurerm_key_vault_secret.vm_admin_username.value
 
-  admin_password = var.admin_password
+  admin_password = data.azurerm_key_vault_secret.vm_admin_password.value
 
   data_disks = var.data_disks
 
@@ -461,9 +480,9 @@ module "vm_dev_ci_002" {
 
   nic_id = module.nic_dev_ci_002.nic_id
 
-  admin_username = var.admin_username
+  admin_username = data.azurerm_key_vault_secret.vm_admin_username.value
 
-  admin_password = var.admin_password
+  admin_password = data.azurerm_key_vault_secret.vm_admin_password.value
 
   data_disks = var.data_disks_dev_ci_002
 

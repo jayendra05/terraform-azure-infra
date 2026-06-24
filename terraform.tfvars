@@ -102,14 +102,14 @@ nsg_dev_ci_001_name = "nsg-dev-ci-001"
 
 
 #############################################
-# LOAD BALANCER VALUES
+# DEV LOAD BALANCER VALUES
 #############################################
 
 lb_dev_ci_001_name = "lb-dev-ci-001"
 
 
 #############################################
-# NIC VALUES
+# DEV NETWORK INTERFACE VALUES
 #############################################
 
 nic_dev_ci_001_name = "nic-dev-ci-001"
@@ -118,7 +118,7 @@ nic_dev_ci_002_name = "nic-dev-ci-002"
 
 
 #############################################
-# VM VALUES
+# DEV VIRTUAL MACHINE VALUES
 #############################################
 
 vm_dev_ci_001_name = "vm-dev-ci-001"
@@ -127,13 +127,21 @@ vm_dev_ci_002_name = "vm-dev-ci-002"
 
 vm_size = "Standard_B2ats_v2"
 
-admin_username = "azureuser"
+#############################################
+# KEY VAULT VM CREDENTIAL VALUES
+#############################################
 
-admin_password = "Password@123456"
+key_vault_name = "kv-jay-all"
+
+key_vault_resource_group_name = "rg-dev-ci-001"
+
+admin_username_secret_name = "vm-admin-username"
+
+admin_password_secret_name = "vm-admin-password"
 
 
 #############################################
-# DATA DISK
+# DATA DISK VALUES
 #############################################
 
 

@@ -142,7 +142,7 @@ variable "nsg_dev_ci_001_name" {
 
 
 #############################################
-# LOAD BALANCER VARIABLES
+# DEV LOAD BALANCER VARIABLES
 #############################################
 
 variable "lb_dev_ci_001_name" {
@@ -151,7 +151,7 @@ variable "lb_dev_ci_001_name" {
 
 
 #############################################
-# NIC VARIABLES
+# DEV NETWORK INTERFACE VARIABLES
 #############################################
 
 variable "nic_dev_ci_001_name" {
@@ -179,17 +179,28 @@ variable "vm_size" {
   type = string
 }
 
-variable "admin_username" {
+#############################################
+# KEY VAULT VM CREDENTIAL VARIABLES
+#############################################
+
+variable "key_vault_name" {
   type = string
 }
 
-variable "admin_password" {
-  type      = string
-  sensitive = true
+variable "key_vault_resource_group_name" {
+  type = string
+}
+
+variable "admin_username_secret_name" {
+  type = string
+}
+
+variable "admin_password_secret_name" {
+  type = string
 }
 
 #############################################
-# DATA DISK
+# DATA DISK VARIABLES
 #############################################
 
 variable "data_disks" {
@@ -221,7 +232,7 @@ variable "data_disks_dev_ci_002" {
 }
 
 #############################################
-# Storage ACCOUNT
+# STORAGE ACCOUNT VARIABLES
 #############################################
 
 variable "storage_dev_ci_001_name" {
@@ -229,4 +240,3 @@ variable "storage_dev_ci_001_name" {
   type = string
 
 }
-
