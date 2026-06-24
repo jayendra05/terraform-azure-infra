@@ -230,8 +230,3 @@ variable "storage_dev_ci_001_name" {
 
 }
 
-variable "storage_dev_ci_002_name" {
-
-  type = string
-
-}
