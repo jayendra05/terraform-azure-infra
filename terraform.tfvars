@@ -156,7 +156,7 @@ data_disks_dev_ci_002 = [
 
   {
     name = "disk-dev-002-data-disk-2"
-    size = 4
+    size = 5
   },
 
 ]
