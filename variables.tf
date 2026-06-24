@@ -229,3 +229,9 @@ variable "storage_dev_ci_001_name" {
   type = string
 
 }
+
+variable "storage_dev_ci_002_name" {
+
+  type = string
+
+}

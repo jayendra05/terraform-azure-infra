@@ -168,3 +168,4 @@ data_disks_dev_ci_002 = [
 
 
 storage_dev_ci_001_name = "stjaydevci001"
+storage_dev_ci_002_name = "stjaydevci002"
