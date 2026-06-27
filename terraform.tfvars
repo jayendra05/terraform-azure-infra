@@ -116,6 +116,8 @@ nic_dev_ci_001_name = "nic-dev-ci-001"
 
 nic_dev_ci_002_name = "nic-dev-ci-002"
 
+nic_dev_ci_win_001_name = "nic-dev-ci-win-001"
+
 
 #############################################
 # DEV VIRTUAL MACHINE VALUES
@@ -124,6 +126,10 @@ nic_dev_ci_002_name = "nic-dev-ci-002"
 vm_dev_ci_001_name = "vm-dev-ci-001"
 
 vm_dev_ci_002_name = "vm-dev-ci-002"
+
+vm_dev_ci_win_001_name = "vm-dev-ci-win-001"
+
+vm_dev_ci_win_001_computer_name = "devciwin001"
 
 vm_size = "Standard_B2ats_v2"
 

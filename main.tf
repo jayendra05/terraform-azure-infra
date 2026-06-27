@@ -409,6 +409,16 @@ module "nic_dev_ci_002" {
   subnet_id           = module.subnet_dev_ci_001.subnet_id
 }
 
+module "nic_dev_ci_win_001" {
+
+  source = "./modules/nic"
+
+  nic_name            = var.nic_dev_ci_win_001_name
+  resource_group_name = module.rg_dev_ci_001.resource_group_name
+  location            = module.rg_dev_ci_001.location
+  subnet_id           = module.subnet_dev_ci_001.subnet_id
+}
+
 #############################################
 # VM ADMIN CREDENTIALS FROM KEY VAULT
 #############################################
@@ -485,6 +495,28 @@ module "vm_dev_ci_002" {
   admin_password = data.azurerm_key_vault_secret.vm_admin_password.value
 
   data_disks = var.data_disks_dev_ci_002
+
+}
+
+module "vm_dev_ci_win_001" {
+
+  source = "./modules/windows_vm"
+
+  vm_name = var.vm_dev_ci_win_001_name
+
+  computer_name = var.vm_dev_ci_win_001_computer_name
+
+  resource_group_name = module.rg_dev_ci_001.resource_group_name
+
+  location = module.rg_dev_ci_001.location
+
+  vm_size = var.vm_size
+
+  nic_id = module.nic_dev_ci_win_001.nic_id
+
+  admin_username = data.azurerm_key_vault_secret.vm_admin_username.value
+
+  admin_password = data.azurerm_key_vault_secret.vm_admin_password.value
 
 }
 
