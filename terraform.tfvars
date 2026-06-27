@@ -160,6 +160,23 @@ admin_username_secret_name = "vm-admin-username"
 
 admin_password_secret_name = "vm-admin-password"
 
+storage_account_name_secret_name = "storage-account-name"
+
+storage_account_key_secret_name = "storage-account-key"
+
+
+#############################################
+# WINDOWS VM EXTENSION VALUES
+#############################################
+
+windows_custom_script_extension_name = "windows_custom_script"
+
+windows_custom_script_urls = [
+  "https://stjaydevci001.blob.core.windows.net/windowspoweshellscript/windows_logonUI_message.ps1",
+]
+
+windows_custom_script_command = "powershell -ExecutionPolicy Unrestricted -NoProfile -NonInteractive -File windows_logonUI_message.ps1"
+
 
 #############################################
 # DATA DISK VALUES

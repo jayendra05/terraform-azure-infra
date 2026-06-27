@@ -235,6 +235,30 @@ variable "admin_password_secret_name" {
   type = string
 }
 
+variable "storage_account_name_secret_name" {
+  type = string
+}
+
+variable "storage_account_key_secret_name" {
+  type = string
+}
+
+#############################################
+# WINDOWS VM EXTENSION VARIABLES
+#############################################
+
+variable "windows_custom_script_extension_name" {
+  type = string
+}
+
+variable "windows_custom_script_urls" {
+  type = list(string)
+}
+
+variable "windows_custom_script_command" {
+  type = string
+}
+
 #############################################
 # DATA DISK VARIABLES
 #############################################

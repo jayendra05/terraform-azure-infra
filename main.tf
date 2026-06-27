@@ -465,6 +465,16 @@ data "azurerm_key_vault_secret" "vm_admin_password" {
   key_vault_id = data.azurerm_key_vault.vm_credentials.id
 }
 
+data "azurerm_key_vault_secret" "script_storage_account_name" {
+  name         = var.storage_account_name_secret_name
+  key_vault_id = data.azurerm_key_vault.vm_credentials.id
+}
+
+data "azurerm_key_vault_secret" "script_storage_account_key" {
+  name         = var.storage_account_key_secret_name
+  key_vault_id = data.azurerm_key_vault.vm_credentials.id
+}
+
 resource "azurerm_network_interface_backend_address_pool_association" "nic_dev_ci_001_lb" {
   network_interface_id    = module.nic_dev_ci_001.nic_id
   ip_configuration_name   = "internal"
@@ -544,6 +554,28 @@ module "vm_dev_jpe_win_001" {
   admin_username = data.azurerm_key_vault_secret.vm_admin_username.value
 
   admin_password = data.azurerm_key_vault_secret.vm_admin_password.value
+
+}
+
+#############################################
+# WINDOWS VM EXTENSIONS
+#############################################
+
+module "winrm_extension_dev_jpe_win_001" {
+
+  source = "./modules/vm_extension_windows"
+
+  extension_name = var.windows_custom_script_extension_name
+
+  vm_id = module.vm_dev_jpe_win_001.vm_id
+
+  script_urls = var.windows_custom_script_urls
+
+  command = var.windows_custom_script_command
+
+  storage_account_name = data.azurerm_key_vault_secret.script_storage_account_name.value
+
+  storage_account_key = data.azurerm_key_vault_secret.script_storage_account_key.value
 
 }
 
