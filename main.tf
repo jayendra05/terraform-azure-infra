@@ -9,6 +9,13 @@ module "rg_dev_ci_001" {
   location            = var.rg_dev_ci_001_location
 }
 
+module "rg_dev_jpe_001" {
+  source = "./modules/rg"
+
+  resource_group_name = var.rg_dev_jpe_001_name
+  location            = var.rg_dev_jpe_001_location
+}
+
 module "rg_test_us_001" {
   source = "./modules/rg"
 
@@ -57,6 +64,16 @@ module "vnet_dev_ci_001" {
   resource_group_name = module.rg_dev_ci_001.resource_group_name
   location            = module.rg_dev_ci_001.location
   address_space       = var.vnet_dev_ci_001_address_space
+}
+
+module "vnet_dev_jpe_001" {
+
+  source = "./modules/vnet"
+
+  vnet_name           = var.vnet_dev_jpe_001_name
+  resource_group_name = module.rg_dev_jpe_001.resource_group_name
+  location            = module.rg_dev_jpe_001.location
+  address_space       = var.vnet_dev_jpe_001_address_space
 }
 
 module "vnet_test_us_001" {
@@ -111,6 +128,16 @@ module "subnet_dev_ci_001" {
   resource_group_name  = module.rg_dev_ci_001.resource_group_name
   virtual_network_name = module.vnet_dev_ci_001.vnet_name
   address_prefixes     = var.subnet_dev_ci_001_prefix
+}
+
+module "subnet_dev_jpe_001" {
+
+  source = "./modules/subnet"
+
+  subnet_name          = var.subnet_dev_jpe_001_name
+  resource_group_name  = module.rg_dev_jpe_001.resource_group_name
+  virtual_network_name = module.vnet_dev_jpe_001.vnet_name
+  address_prefixes     = var.subnet_dev_jpe_001_prefix
 }
 
 module "subnet_test_us_001" {
@@ -409,14 +436,14 @@ module "nic_dev_ci_002" {
   subnet_id           = module.subnet_dev_ci_001.subnet_id
 }
 
-module "nic_dev_ci_win_001" {
+module "nic_dev_jpe_win_001" {
 
   source = "./modules/nic"
 
-  nic_name            = var.nic_dev_ci_win_001_name
-  resource_group_name = module.rg_dev_ci_001.resource_group_name
-  location            = module.rg_dev_ci_001.location
-  subnet_id           = module.subnet_dev_ci_001.subnet_id
+  nic_name            = var.nic_dev_jpe_win_001_name
+  resource_group_name = module.rg_dev_jpe_001.resource_group_name
+  location            = module.rg_dev_jpe_001.location
+  subnet_id           = module.subnet_dev_jpe_001.subnet_id
 }
 
 #############################################
@@ -498,21 +525,21 @@ module "vm_dev_ci_002" {
 
 }
 
-module "vm_dev_ci_win_001" {
+module "vm_dev_jpe_win_001" {
 
   source = "./modules/windows_vm"
 
-  vm_name = var.vm_dev_ci_win_001_name
+  vm_name = var.vm_dev_jpe_win_001_name
 
-  computer_name = var.vm_dev_ci_win_001_computer_name
+  computer_name = var.vm_dev_jpe_win_001_computer_name
 
-  resource_group_name = module.rg_dev_ci_001.resource_group_name
+  resource_group_name = module.rg_dev_jpe_001.resource_group_name
 
-  location = module.rg_dev_ci_001.location
+  location = module.rg_dev_jpe_001.location
 
   vm_size = var.vm_size
 
-  nic_id = module.nic_dev_ci_win_001.nic_id
+  nic_id = module.nic_dev_jpe_win_001.nic_id
 
   admin_username = data.azurerm_key_vault_secret.vm_admin_username.value
 

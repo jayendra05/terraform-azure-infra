@@ -5,6 +5,9 @@
 rg_dev_ci_001_name     = "rg-dev-ci-001"
 rg_dev_ci_001_location = "Central India"
 
+rg_dev_jpe_001_name     = "rg-dev-jpe-001"
+rg_dev_jpe_001_location = "Japan East"
+
 rg_test_us_001_name     = "rg-test-us-001"
 rg_test_us_001_location = "East US"
 
@@ -29,6 +32,12 @@ vnet_dev_ci_001_name = "vnet-dev-ci-001"
 
 vnet_dev_ci_001_address_space = [
   "10.0.0.0/16"
+]
+
+vnet_dev_jpe_001_name = "vnet-dev-jpe-001"
+
+vnet_dev_jpe_001_address_space = [
+  "10.10.0.0/16"
 ]
 
 
@@ -66,6 +75,12 @@ subnet_dev_ci_001_name = "subnet-dev-ci-001"
 
 subnet_dev_ci_001_prefix = [
   "10.0.1.0/24"
+]
+
+subnet_dev_jpe_001_name = "subnet-dev-jpe-001"
+
+subnet_dev_jpe_001_prefix = [
+  "10.10.1.0/24"
 ]
 
 
@@ -116,7 +131,7 @@ nic_dev_ci_001_name = "nic-dev-ci-001"
 
 nic_dev_ci_002_name = "nic-dev-ci-002"
 
-nic_dev_ci_win_001_name = "nic-dev-ci-win-001"
+nic_dev_jpe_win_001_name = "nic-dev-jpe-win-001"
 
 
 #############################################
@@ -127,9 +142,9 @@ vm_dev_ci_001_name = "vm-dev-ci-001"
 
 vm_dev_ci_002_name = "vm-dev-ci-002"
 
-vm_dev_ci_win_001_name = "vm-dev-ci-win-001"
+vm_dev_jpe_win_001_name = "vm-dev-jpe-win-001"
 
-vm_dev_ci_win_001_computer_name = "devciwin001"
+vm_dev_jpe_win_001_computer_name = "devjpewin001"
 
 vm_size = "Standard_B2ats_v2"
 

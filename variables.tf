@@ -10,6 +10,14 @@ variable "rg_dev_ci_001_location" {
   type = string
 }
 
+variable "rg_dev_jpe_001_name" {
+  type = string
+}
+
+variable "rg_dev_jpe_001_location" {
+  type = string
+}
+
 variable "rg_test_us_001_name" {
   type = string
 }
@@ -63,6 +71,14 @@ variable "vnet_dev_ci_001_address_space" {
   type = list(string)
 }
 
+variable "vnet_dev_jpe_001_name" {
+  type = string
+}
+
+variable "vnet_dev_jpe_001_address_space" {
+  type = list(string)
+}
+
 variable "vnet_test_us_001_name" {
   type = string
 }
@@ -105,6 +121,14 @@ variable "subnet_dev_ci_001_name" {
 }
 
 variable "subnet_dev_ci_001_prefix" {
+  type = list(string)
+}
+
+variable "subnet_dev_jpe_001_name" {
+  type = string
+}
+
+variable "subnet_dev_jpe_001_prefix" {
   type = list(string)
 }
 
@@ -162,7 +186,7 @@ variable "nic_dev_ci_002_name" {
   type = string
 }
 
-variable "nic_dev_ci_win_001_name" {
+variable "nic_dev_jpe_win_001_name" {
   type = string
 }
 
@@ -179,11 +203,11 @@ variable "vm_dev_ci_002_name" {
   type = string
 }
 
-variable "vm_dev_ci_win_001_name" {
+variable "vm_dev_jpe_win_001_name" {
   type = string
 }
 
-variable "vm_dev_ci_win_001_computer_name" {
+variable "vm_dev_jpe_win_001_computer_name" {
   type = string
 }
 
