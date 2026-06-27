@@ -300,3 +300,4 @@ variable "storage_dev_ci_001_name" {
   type = string
 
 }
+
