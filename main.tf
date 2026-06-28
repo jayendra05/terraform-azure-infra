@@ -631,3 +631,4 @@ module "storage_dev_ci_001" {
   location = module.rg_dev_ci_001.location
 
 }
+
