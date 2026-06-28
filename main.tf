@@ -513,6 +513,24 @@ module "vm_dev_ci_001" {
 
 }
 
+module "linux_extension_dev_ci_001" {
+
+  source = "./modules/vm_extension_linux"
+
+  extension_name = var.linux_custom_script_extension_name
+
+  vm_id = module.vm_dev_ci_001.vm_id
+
+  script_urls = var.linux_custom_script_urls
+
+  command = var.linux_custom_script_command
+
+  storage_account_name = data.azurerm_key_vault_secret.script_storage_account_name.value
+
+  storage_account_key = data.azurerm_key_vault_secret.script_storage_account_key.value
+
+}
+
 module "vm_dev_ci_002" {
 
   source = "./modules/vm"
@@ -532,6 +550,24 @@ module "vm_dev_ci_002" {
   admin_password = data.azurerm_key_vault_secret.vm_admin_password.value
 
   data_disks = var.data_disks_dev_ci_002
+
+}
+
+module "linux_extension_dev_ci_002" {
+
+  source = "./modules/vm_extension_linux"
+
+  extension_name = var.linux_custom_script_extension_name
+
+  vm_id = module.vm_dev_ci_002.vm_id
+
+  script_urls = var.linux_custom_script_urls
+
+  command = var.linux_custom_script_command
+
+  storage_account_name = data.azurerm_key_vault_secret.script_storage_account_name.value
+
+  storage_account_key = data.azurerm_key_vault_secret.script_storage_account_key.value
 
 }
 

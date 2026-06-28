@@ -292,6 +292,28 @@ variable "data_disks_dev_ci_002" {
 }
 
 #############################################
+# LINUX VM EXTENSION VARIABLES
+#############################################
+
+variable "linux_custom_script_extension_name" {
+
+  type = string
+
+}
+
+variable "linux_custom_script_urls" {
+
+  type = list(string)
+
+}
+
+variable "linux_custom_script_command" {
+
+  type = string
+
+}
+
+#############################################
 # STORAGE ACCOUNT VARIABLES
 #############################################
 

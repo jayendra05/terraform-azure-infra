@@ -179,6 +179,18 @@ windows_custom_script_command = "powershell -ExecutionPolicy Unrestricted -NoPro
 
 
 #############################################
+# LINUX VM EXTENSION VALUES
+#############################################
+
+linux_custom_script_extension_name = "linux_custom_script"
+
+linux_custom_script_urls = [
+  "https://stjaydevci001.blob.core.windows.net/linuxscript/messagedisplay.sh"
+]
+
+linux_custom_script_command = "chmod +x messagedisplay.sh && ./messagedisplay.sh"
+
+#############################################
 # DATA DISK VALUES
 #############################################
 
