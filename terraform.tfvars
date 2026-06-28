@@ -188,6 +188,8 @@ linux_custom_script_urls = [
   "https://stjaydevci001.blob.core.windows.net/linuxscript/messagedisplay.sh"
 ]
 
+linux_custom_script_command = "chmod +x messagedisplay.sh && /bin/bash messagedisplay.sh"
+
 
 linux_custom_script_command = "chmod +x messagedisplay.sh && ./messagedisplay.sh"
 
