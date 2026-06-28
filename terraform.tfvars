@@ -191,8 +191,6 @@ linux_custom_script_urls = [
 linux_custom_script_command = "chmod +x messagedisplay.sh && /bin/bash messagedisplay.sh"
 
 
-linux_custom_script_command = "chmod +x messagedisplay.sh && ./messagedisplay.sh"
-
 #############################################
 # DATA DISK VALUES
 #############################################
